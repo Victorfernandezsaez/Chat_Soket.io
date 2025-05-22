@@ -1,0 +1,151 @@
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+header {
+  display: flex;
+  height: 80px;
+  width: 100%;
+  background-color: #daeef7;
+  padding: 0 20px;
+  align-items: center;
+}
+
+nav {
+  display: flex;
+  width: 100%;
+  justify-content: space-around;
+}
+
+nav > a {
+  text-decoration: none;
+  color: #29627e;
+}
+
+.logo {
+  flex: 1;
+  padding: 5px;
+}
+
+.logo-img {
+  height: 50px;
+  width: 50px;
+  border-radius: 50%;
+}
+
+.layout {
+  width: 100%;
+  display: flex;
+  flex: 1;
+}
+
+aside {
+  flex: 1;
+  padding-left: 0.5rem;
+  margin-left: 0.5rem;
+  float: right;
+  box-shadow: inset 5px 0 5px -5px #29627e;
+  font-style: italic;
+  color: #29627e;
+}
+
+main {
+  flex: 2;
+}
+
+footer {
+  height: 60px;
+  background-color: #daeef7;
+  color: 29627e;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.chat-apps-container {
+  display: flex;
+  width: 100%;
+  min-height: 500px;
+  position: relative;
+}
+
+.chat-apps-wrapper {
+  display: flex;
+  gap: 10;
+  width: 100%;
+}
+.chat-iframe {
+  flex: 1;
+  height: 100%;
+  min-width: 0; /* Allows flex items to shrink below content size */
+  border: none;
+  border-radius: 8px;
+  background: transparent;
+}
+
+.chat-loading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  color: #666;
+  font-style: italic;
+}
+
+.chat-error {
+  padding: 2rem;
+  text-align: center;
+  color: #d32f2f;
+  border: 1px solid #ffcdd2;
+  border-radius: 4px;
+  background: #ffebee;
+}
+
+.chat-error button {
+  margin-top: 1rem;
+  padding: 0.5rem 1rem;
+  background: #d32f2f;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+/* Mobile First Approach */
+@media (max-width: 768px) {
+  .chat-apps-wrapper {
+    flex-direction: column;
+    height: 100vh;
+    gap: 15px;
+  }
+
+  .chat-iframe {
+    height: 100%; /* Shorter height on mobile */
+    min-height: unset;
+  }
+}
+
+/* Tablet Landscape */
+@media (min-width: 769px) and (max-width: 1024px) {
+  .chat-iframe {
+    height: 100%;
+  }
+}
+
+/* Large Desktop */
+@media (min-width: 1600px) {
+  .chat-iframe {
+    height: 100%;
+  }
+}

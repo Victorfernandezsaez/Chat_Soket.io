@@ -1,0 +1,25 @@
+{
+  "name": "chat_socket.io",
+  "version": "1.0.0",
+  "description": "This is a website with an chat application enbeded",
+  "main": "index.js",
+  "scripts": {
+    "start": "node",
+    "dev": "nodemon",
+    "lint": "eslint ./server/public/**/*.js",
+    "format": "prettier --write ./server/public/**/*.{js,html,css}"
+  },
+  "keywords": [],
+  "author": "Victor Fernandez Saez",
+  "license": "ISC",
+  "type": "module",
+  "dependencies": {
+    "express": "^5.1.0",
+    "socket.io": "^4.8.1"
+  },
+  "devDependencies": {
+    "eslint": "^9.27.0",
+    "nodemon": "^3.1.10",
+    "prettier": "^3.5.3"
+  }
+}
