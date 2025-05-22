@@ -1,9 +1,14 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/@coreui/icons/css/all.min.css"
+    />
+
     <script
       src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.8.1/socket.io.min.js"
       integrity="sha512-8ExARjWWkIllMlNzVg7JKq9RKWPlJABQUNq6YvAjE/HobctjH/NA+bSiDMDvouBVjp4Wwnf1VP1OEv7Zgjtuxw=="
@@ -45,7 +50,10 @@
           placeholder="Your message..."
           required
         />
-        <button>Send</button>
+        <button type="submit">
+          <span class="send-text"> Send </span>
+          <i class="cil-send send-icon"></i>
+        </button>
       </form>
       <ul></ul>
     </main>

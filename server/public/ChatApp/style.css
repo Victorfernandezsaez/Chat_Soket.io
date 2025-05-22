@@ -8,7 +8,7 @@
 
 body {
   background-color: #101828;
-  color: #fff;
+  color: #f4f4f4;
 }
 
 main {
@@ -39,7 +39,7 @@ button {
   border-radius: 20px;
   padding: 0.5rem 1rem;
   background-color: #615fff;
-  color: white;
+  color: #f4f4f4;
   border: none;
   cursor: pointer;
   align-content: center;
@@ -54,7 +54,7 @@ button {
   font-size: 1.2rem;
   font-weight: bold;
   background-color: #615fff;
-  color: white;
+  color: #f4f4f4;
   border-radius: 10px 10px 0 0;
   border: 1px solid #444;
   border-bottom: none;
@@ -89,14 +89,14 @@ button {
 .post--left {
   align-self: flex-start;
   background-color: #615fff;
-  color: #fff;
+  color: #f4f4f4;
   border-top-left-radius: 0;
 }
 
 .post--right {
   align-self: flex-end;
   background-color: #615fff;
-  color: #fff;
+  color: #f4f4f4;
   border-top-right-radius: 0;
 }
 
@@ -158,7 +158,7 @@ button {
 
 .post__text {
   padding: 0.25rem 0.5rem;
-  color: #fff;
+  color: #f4f4f4;
   white-space: pre-wrap;
 }
 
@@ -177,8 +177,45 @@ button {
   color: #888;
 }
 
-/* Mobile First Approach */
-@media (max-width: 768px) {
+.form-msg button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  position: relative; /* Added for icon positioning */
+}
+
+.send-text {
+  display: inline-block;
+}
+
+.send-icon {
+  display: none;
+  font-size: 1.2rem;
+}
+
+/* Mobile styles */
+@media (max-width: 300px) {
+  .form-msg button {
+    width: 40px !important; /* Override other width declarations */
+    min-width: 40px !important;
+    height: 40px;
+    padding: 0;
+    border-radius: 20px;
+  }
+
+  .send-text {
+    display: none;
+  }
+
+  .send-icon {
+    display: block;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+  }
+
   .form-join {
     flex-direction: column;
     height: 100px;
@@ -202,19 +239,5 @@ button {
   }
   .form-msg button {
     flex: 1;
-  }
-}
-
-/* Tablet Landscape */
-@media (min-width: 769px) and (max-width: 1024px) {
-  .chat-iframe {
-    height: 100%;
-  }
-}
-
-/* Large Desktop */
-@media (min-width: 1600px) {
-  .chat-iframe {
-    height: 100%;
   }
 }
