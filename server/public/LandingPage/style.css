@@ -25,11 +25,22 @@ header {
 nav {
   display: flex;
   width: 100%;
-  justify-content: space-around;
+  flex: 11;
 }
 
 nav > a {
   text-decoration: none;
+  color: #29627e;
+  margin-right: 30px;
+}
+
+h1 {
+  padding: 20px;
+  color: #29627e;
+}
+
+p {
+  font-style: italic;
   color: #29627e;
 }
 
@@ -50,14 +61,20 @@ nav > a {
   flex: 1;
 }
 
+.intro {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 5px 20px;
+}
+
 aside {
   flex: 1;
   padding-left: 0.5rem;
   margin-left: 0.5rem;
   float: right;
   box-shadow: inset 5px 0 5px -5px #29627e;
-  font-style: italic;
-  color: #29627e;
 }
 
 main {
@@ -76,8 +93,8 @@ footer {
 .chat-apps-container {
   display: flex;
   width: 100%;
-  min-height: 500px;
   position: relative;
+  padding: 5px;
 }
 
 .chat-apps-wrapper {
@@ -87,20 +104,11 @@ footer {
 }
 .chat-iframe {
   flex: 1;
-  height: 100%;
-  min-width: 0; /* Allows flex items to shrink below content size */
+  min-width: 0;
   border: none;
-  border-radius: 8px;
+  border-radius: 10px;
   background: transparent;
-}
-
-.chat-loading {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100%;
-  color: #666;
-  font-style: italic;
+  margin: 5px;
 }
 
 .chat-error {
@@ -127,7 +135,6 @@ footer {
   .chat-apps-wrapper {
     flex-direction: column;
     height: 100vh;
-    gap: 15px;
   }
 
   .chat-iframe {

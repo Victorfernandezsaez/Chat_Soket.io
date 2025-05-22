@@ -43,8 +43,9 @@ const roomHeader = document.createElement('div');
 roomHeader.className = 'room-header';
 document.querySelector('main').insertBefore(roomHeader, chatDisplay);
 
-socket.on('roomHeader', ({ room }) => {
-  roomHeader.textContent = `Group: ${room}`;
+socket.on('roomHeader', ({ room, users }) => {
+  roomHeader.textContent = `${room}`;
+  showUsers(users);
 });
 
 // Listen for Messages from server
@@ -88,7 +89,7 @@ socket.on('userList', ({ users }) => {
   showUsers(users);
 });
 
-function showUsers(users) {
+/* function showUsers(users) {
   userList.textContent = '';
   if (users) {
     userList.innerHTML = `
@@ -100,6 +101,23 @@ function showUsers(users) {
         userList.textContent += ',';
       }
     });
+  }
+} */
+function showUsers(users) {
+  // Find or create users container
+  let usersContainer = roomHeader.querySelector('.room-users');
+
+  if (!usersContainer) {
+    usersContainer = document.createElement('div');
+    usersContainer.className = 'room-users';
+    roomHeader.appendChild(usersContainer);
+  }
+
+  usersContainer.innerHTML = ''; // Clear existing
+
+  if (users && users.length > 0) {
+    // Add user names separated by commas
+    usersContainer.textContent = users.map((user) => `${user.name}`).join(', ');
   }
 }
 
