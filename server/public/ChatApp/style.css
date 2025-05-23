@@ -196,10 +196,12 @@ button {
 
 /* Mobile styles */
 @media (max-width: 300px) {
+  .form-msg {
+    max-height: 40px;
+  }
   .form-msg button {
     width: 40px !important; /* Override other width declarations */
     min-width: 40px !important;
-    height: 40px;
     padding: 0;
     border-radius: 20px;
   }
