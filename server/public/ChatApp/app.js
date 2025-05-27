@@ -89,20 +89,6 @@ socket.on('userList', ({ users }) => {
   showUsers(users);
 });
 
-/* function showUsers(users) {
-  userList.textContent = '';
-  if (users) {
-    userList.innerHTML = `
-      <em>Users in ${chatRoom.value}:</em>
-    `;
-    users.forEach((user, i) => {
-      userList.textContent += ` ${user.name}`;
-      if (users.length > 1 && i !== users.length - 1) {
-        userList.textContent += ',';
-      }
-    });
-  }
-} */
 function showUsers(users) {
   // Find or create users container
   let usersContainer = roomHeader.querySelector('.room-users');

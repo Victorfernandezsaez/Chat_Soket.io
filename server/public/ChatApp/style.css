@@ -6,9 +6,17 @@
   font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
 }
 
+:root {
+  --background: #d3d9d4;
+  --primary: #124e66;
+  --secondary: #748d92;
+  --black: #212a31;
+  --grey: #2e3944;
+}
+
 body {
-  background-color: #101828;
-  color: #f4f4f4;
+  background-color: var(--secondary);
+  color: var(--grey);
 }
 
 main {
@@ -38,8 +46,8 @@ button {
   width: 20%;
   border-radius: 20px;
   padding: 0.5rem 1rem;
-  background-color: #615fff;
-  color: #f4f4f4;
+  background-color: var(--primary);
+  color: var(--background);
   border: none;
   cursor: pointer;
   align-content: center;
@@ -53,15 +61,15 @@ button {
   text-align: center;
   font-size: 12px;
   font-weight: bold;
-  background-color: #615fff;
-  color: #f4f4f4;
+  background-color: var(--primary);
+  color: var(--background);
   border-radius: 10px 10px 0 0;
-  border: 1px solid #444;
+  border: 1px solid var(--grey);
   border-bottom: none;
 }
 
 .chat-display {
-  background-color: #1e2938;
+  background-color: var(--background);
   list-style-type: none;
   width: 100%;
   max-width: 600px;
@@ -73,7 +81,7 @@ button {
   overflow-y: auto;
   flex-grow: 1;
   gap: 0.5rem;
-  border: 1px solid #444;
+  border: 1px solid var(--grey);
 }
 
 .post {
@@ -88,15 +96,15 @@ button {
 
 .post--left {
   align-self: flex-start;
-  background-color: #615fff;
-  color: #f4f4f4;
+  background-color: var(--primary);
+  color: var(--background);
   border-top-left-radius: 0;
 }
 
 .post--right {
   align-self: flex-end;
-  background-color: #615fff;
-  color: #f4f4f4;
+  background-color: var(--primary);
+  color: var(--background);
   border-top-right-radius: 0;
 }
 
@@ -107,12 +115,12 @@ button {
   gap: 0.5rem;
   font-size: 0.8rem;
   margin-bottom: 2px;
-  color: #555;
+  color: var(--background);
 }
 
 .post__header--name {
   font-weight: bold;
-  color: #615fff;
+  color: var(--primary);
 }
 
 /* user colors */
@@ -147,18 +155,13 @@ button {
   color: #d63031;
 }
 
-.post__header--time {
-  color: #999;
-  font-size: 0.75rem;
-}
-
 .post__header--reply {
   color: purple;
 }
 
 .post__text {
   padding: 0.25rem 0.5rem;
-  color: #f4f4f4;
+  color: var(--background);
   white-space: pre-wrap;
 }
 
@@ -174,7 +177,7 @@ button {
 
 .activity {
   font-style: italic;
-  color: #888;
+  color: var(--background);
 }
 
 .form-msg button {
@@ -182,7 +185,7 @@ button {
   align-items: center;
   justify-content: center;
   gap: 8px;
-  position: relative; /* Added for icon positioning */
+  position: relative;
 }
 
 .send-text {
@@ -199,8 +202,9 @@ button {
   .form-msg {
     max-height: 40px;
   }
+
   .form-msg button {
-    width: 40px !important; /* Override other width declarations */
+    width: 40px !important;
     min-width: 40px !important;
     padding: 0;
     border-radius: 20px;
@@ -225,13 +229,13 @@ button {
   }
 
   .form-join input {
-    height: 30px; /* Shorter height on mobile */
+    height: 30px;
     min-height: unset;
     min-width: 100%;
   }
 
   .form-join button {
-    height: 30px; /* Shorter height on mobile */
+    height: 30px;
     min-height: unset;
     min-width: 100%;
   }
