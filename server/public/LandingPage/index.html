@@ -3,6 +3,10 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+    />
     <link rel="stylesheet" href="LandingPage/style.css" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.8.1/socket.io.min.js"></script>
     <script defer src="LandingPage/script.js"></script>
@@ -17,12 +21,27 @@
           alt="Letter V as logo"
         />
       </div>
-      <nav id="navbar">
+      <nav id="navbar" class="navbar">
         <a href="">Hit Me Up App</a>
         <a href="">Bild Galerie </a>
         <a href="">Rezepte </a>
-        <a href="">Weltlarte </a>
+        <a href="">Weltkarte </a>
       </nav>
+      <div class="hamburger-menu">
+        <button
+          id="hamburger-icon"
+          class="icon"
+          aria-label="Toggle navigation menu"
+        >
+          <i class="fa-solid fa-bars" style="font-size: 25px"></i>
+        </button>
+        <div id="hamburgerLinks">
+          <a href="#home">Home</a>
+          <a href="#bildGallerie">Bild Galerie</a>
+          <a href="#rezeptListe">Recipies</a>
+          <a href="#weltkarte">Maps</a>
+        </div>
+      </div>
     </header>
     <div class="layout">
       <main>

@@ -7,6 +7,14 @@
   font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
 }
 
+:root {
+  --background: #d3d9d4;
+  --primary: #124e66;
+  --secondary: #748d92;
+  --black: #212a31;
+  --grey: #2e3944;
+}
+
 body {
   display: flex;
   flex-direction: column;
@@ -17,7 +25,7 @@ header {
   display: flex;
   height: 80px;
   width: 100%;
-  background-color: #daeef7;
+  background-color: var(--primary);
   padding: 0 20px;
   align-items: center;
 }
@@ -25,23 +33,28 @@ header {
 nav {
   display: flex;
   width: 100%;
-  flex: 11;
+  flex: 6;
 }
 
 nav > a {
   text-decoration: none;
-  color: #29627e;
-  margin-right: 30px;
+  color: var(--background);
+  margin-right: 80px;
+}
+
+.hamburger-menu {
+  display: none;
+  margin-left: auto;
 }
 
 h1 {
   padding: 20px;
-  color: #29627e;
+  color: var(--primary);
 }
 
 p {
   font-style: italic;
-  color: #29627e;
+  color: var(--primary);
 }
 
 .logo {
@@ -74,7 +87,7 @@ aside {
   padding-left: 0.5rem;
   margin-left: 0.5rem;
   float: right;
-  box-shadow: inset 5px 0 5px -5px #29627e;
+  box-shadow: inset 5px 0 5px -5px var(--secondary);
 }
 
 main {
@@ -83,8 +96,8 @@ main {
 
 footer {
   height: 60px;
-  background-color: #daeef7;
-  color: 29627e;
+  background-color: var(--primary);
+  color: var(--background);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -111,25 +124,6 @@ footer {
   margin: 5px;
 }
 
-.chat-error {
-  padding: 2rem;
-  text-align: center;
-  color: #d32f2f;
-  border: 1px solid #ffcdd2;
-  border-radius: 4px;
-  background: #ffebee;
-}
-
-.chat-error button {
-  margin-top: 1rem;
-  padding: 0.5rem 1rem;
-  background: #d32f2f;
-  color: #f4f4f4;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-}
-
 /* Mobile First Approach */
 @media (max-width: 768px) {
   .chat-apps-wrapper {
@@ -140,6 +134,55 @@ footer {
   .chat-iframe {
     height: 100%; /* Shorter height on mobile */
     min-height: unset;
+  }
+
+  .navbar {
+    display: none;
+  }
+
+  .hamburger-menu {
+    display: flex;
+    justify-content: flex-end;
+    display: block;
+    position: relative;
+  }
+
+  .hamburger-menu #hamburgerLinks {
+    display: none;
+    position: absolute;
+    top: 50px;
+    right: -15px;
+    background-color: var(--primary);
+    min-width: 160px;
+    z-index: 1;
+    border-bottom-left-radius: 8px;
+    border-bottom-right-radius: 8px;
+  }
+
+  .hamburger-menu a {
+    color: var(--background);
+    padding: 5px;
+    text-decoration: none;
+    font-size: 17px;
+    display: block;
+  }
+
+  .hamburger-menu a:hover {
+    background-color: #ddd;
+    color: var(--grey);
+  }
+
+  #hamburger-icon {
+    height: 10px;
+    width: 10px;
+    background: none;
+    border: none;
+    color: var(--background);
+    cursor: pointer;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 }
 
