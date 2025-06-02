@@ -8,6 +8,8 @@ document.addEventListener('DOMContentLoaded', async () => {
 });
 
 let currentRecipes = [];
+let isLoading = false;
+let numberOfRecipes = 0;
 
 async function loadInitialRecipes() {
   const resultsDiv = document.getElementById('results');
@@ -26,19 +28,43 @@ async function loadInitialRecipes() {
 }
 
 async function moreRecipies() {
+  if (isLoading) return;
+  isLoading = true;
+
   const resultsDiv = document.getElementById('results');
-  resultsDiv.innerHTML = 'Loading more recipes...';
+  const loadMoreBtn = document.getElementById('load-more-btn');
+
+  if (loadMoreBtn) {
+    loadMoreBtn.disabled = true;
+  }
+
   try {
     const response = await fetch(
       `https://api.spoonacular.com/recipes/random?number=12&apiKey=${apiKey}`
     );
+
     const data = await response.json();
     currentRecipes = [...currentRecipes, ...data.recipes];
-    displayRecipes(currentRecipes);
+    appendNewRecipies(data.recipes);
   } catch (error) {
     resultsDiv.innerHTML = 'Error loading more recipes.';
     console.error(error);
   }
+}
+
+function appendNewRecipies(recipes) {
+  const resultsDiv = document.getElementById('results');
+  const newRecipesHTML = recipes
+    .map(
+      (recipe) => `
+    <div class="recipe" onclick="showRecipeDetails(${recipe.id})">
+      <h3>${recipe.title}</h3>
+      <img src="${recipe.image}" alt="${recipe.title}" loading="lazy"/>
+    </div>
+  `
+    )
+    .join('');
+  resultsDiv.insertAdjacentHTML('beforeend', newRecipesHTML);
 }
 
 async function searchRecipes() {
