@@ -1,4 +1,8 @@
-document.addEventListener('DOMContentLoaded', () => {
+import { loadNavbar } from '../Navbar/loadNavbar.js';
+
+document.addEventListener('DOMContentLoaded', async () => {
+  await loadNavbar();
+
   const appsContainer = document.querySelector('.chat-apps-container');
 
   if (!appsContainer) return;
@@ -28,36 +32,4 @@ document.addEventListener('DOMContentLoaded', () => {
 
   wrapper.appendChild(createIframe());
   wrapper.appendChild(createIframe());
-
-  const hamburgerIcon = document.getElementById('hamburger-icon');
-  const links = document.getElementById('hamburgerLinks');
-
-  function closeMenu() {
-    links.style.display = 'none';
-    document.removeEventListener('click', outsideClickListener);
-  }
-
-  function outsideClickListener(event) {
-    if (
-      !links.contains(event.target) &&
-      !hamburgerIcon.contains(event.target)
-    ) {
-      closeMenu();
-    }
-  }
-
-  if (hamburgerIcon && links) {
-    hamburgerIcon.addEventListener('click', (event) => {
-      event.stopPropagation();
-
-      if (links.style.display === 'block') {
-        closeMenu();
-      } else {
-        links.style.display = 'block';
-        setTimeout(() => {
-          document.addEventListener('click', outsideClickListener);
-        }, 10);
-      }
-    });
-  }
 });

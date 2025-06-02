@@ -1,0 +1,136 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+}
+
+:root {
+  --background: #d3d9d4;
+  --primary: #124e66;
+  --secondary: #748d92;
+  --black: #212a31;
+  --grey: #2e3944;
+}
+
+body {
+  background: var(--background);
+  color: var(--black);
+  margin: 0;
+}
+
+.container {
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+}
+
+.search {
+  display: flex;
+  justify-content: space-evenly;
+  margin-top: 20px;
+  height: 40px;
+}
+input {
+  padding: 0.5rem 1rem;
+  height: 100%;
+  width: 70%;
+  font-size: 1rem;
+  border-radius: 20px;
+  border: none;
+}
+
+button {
+  font-size: 16px;
+  padding: 0.5rem 1rem;
+  height: 100%;
+  width: 20%;
+  border-radius: 20px;
+  background-color: var(--primary);
+  color: var(--background);
+  border: none;
+  cursor: pointer;
+  align-content: center;
+}
+
+#results {
+  margin-top: 2rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+.recipe {
+  color: var(--background);
+  background: var(--primary);
+  padding: 1rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px var(--black);
+  cursor: pointer;
+}
+
+.recipe img {
+  max-width: 100%;
+  border-radius: 4px;
+}
+
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: var(--grey);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
+}
+
+.modal h2,
+h3 {
+  padding: 20px 0;
+}
+.modal ul,
+ol {
+  padding-left: 20px;
+}
+.modal li {
+  color: var(--black);
+  padding: 5px 3px;
+}
+.modal.hidden {
+  display: none;
+}
+
+.modal-content {
+  background: var(--background);
+  padding: 2rem;
+  border-radius: 8px;
+  max-width: 600px;
+  width: 90%;
+  max-height: 80vh;
+  overflow-y: auto;
+  position: relative;
+}
+
+.close {
+  position: absolute;
+  top: 0.5rem;
+  right: 1rem;
+  font-size: 2rem;
+  cursor: pointer;
+}
+
+.more-recipies {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-bottom: 20px;
+}
+
+.more-recipies-btn {
+  display: flex;
+  width: 25%;
+  justify-content: center;
+}
