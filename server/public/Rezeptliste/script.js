@@ -9,7 +9,6 @@ document.addEventListener('DOMContentLoaded', async () => {
 
 let currentRecipes = [];
 let isLoading = false;
-let numberOfRecipes = 0;
 
 async function loadInitialRecipes() {
   const resultsDiv = document.getElementById('results');
