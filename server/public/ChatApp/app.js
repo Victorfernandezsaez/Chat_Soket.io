@@ -1,8 +1,6 @@
-//const socket = io("ws://localhost:5500");
 const socket = io();
 
 const activity = document.querySelector('.activity');
-const userList = document.querySelector('.user-list');
 const roomList = document.querySelector('.room-list');
 const chatDisplay = document.querySelector('.chat-display');
 const msgInput = document.querySelector('#message');
@@ -83,10 +81,6 @@ socket.on('activity', (name) => {
   activityTimer = setTimeout(() => {
     activity.textContent = '';
   }, 2000);
-});
-
-socket.on('userList', ({ users }) => {
-  showUsers(users);
 });
 
 function showUsers(users) {
