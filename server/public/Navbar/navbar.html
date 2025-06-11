@@ -1,27 +1,39 @@
 <header id="header">
+  <!-- Logo Section -->
   <div class="logo">
+    <!-- The logo image for the website -->
     <img class="logo-img" src="../assets/images.jpeg" alt="Letter V as logo" />
   </div>
+
+  <!-- Main Navigation Bar -->
   <nav id="navbar" class="navbar">
-    <a href="/#chat-apps-container">Hit Me Up App</a>
-    <a href="/BilderGalerie">Bild Galerie</a>
-    <a href="/Rezeptliste">Rezepte</a>
-    <a href="/Weltkarte">Weltkarte</a>
+    <!-- Links to different sections/pages -->
+    <a href="?page=landing">Home</a>
+    <a href="?page=galerie">Bild Galerie</a>
+    <a href="?page=recipes">Rezepte</a>
+    <a href="?page=weltkarte">Weltkarte</a>
   </nav>
+
+  <!-- Hamburger Menu for Mobile Screens -->
   <div class="hamburger-menu">
+    <!-- Button to toggle the hamburger menu -->
     <button
       id="hamburger-icon"
       aria-expanded="false"
       aria-controls="hamburgerLinks"
     >
-      button
-      <!-- <i class="fa-solid fa-bars" style="font-size: 25px"></i> -->
+      <!-- Accessible label for screen readers -->
+      <span class="visually-hidden">Toggle navigation</span>
+      <!-- Placeholder for the hamburger icon -->
+      <i class="fa-solid fa-bars" style="font-size: 25px"></i>
     </button>
-    <div id="hamburgerLinks">
-      <a href="/#chat-apps-container">Home</a>
-      <a href="/BilderGalerie">Bild Galerie</a>
-      <a href="/Rezeptliste">Recipies</a>
-      <a href="/Weltkarte">Maps</a>
-    </div>
+
+    <!-- Links displayed in the hamburger menu -->
+    <nav id="hamburgerLinks">
+      <a href="?page=landing">Home</a>
+      <a href="?page=galerie">Bild Galerie</a>
+      <a href="?page=recipes">Rezepte</a>
+      <a href="?page=weltkarte">Weltkarte</a>
+    </nav>
   </div>
 </header>
