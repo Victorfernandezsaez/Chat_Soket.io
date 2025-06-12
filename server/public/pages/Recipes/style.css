@@ -1,24 +1,3 @@
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-}
-
-:root {
-  --background: #d3d9d4;
-  --primary: #124e66;
-  --secondary: #748d92;
-  --black: #212a31;
-  --grey: #2e3944;
-}
-
-body {
-  background: var(--background);
-  color: var(--black);
-  margin: 0;
-}
-
 .container {
   margin: 0 auto;
   padding: 2rem;

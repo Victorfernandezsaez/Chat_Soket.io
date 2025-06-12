@@ -70,7 +70,7 @@ function showErrorToUser(message) {
  */
 export function highlightActiveNavLink() {
   try {
-    const path = window.location.pathname;
+    const path = window.location.pathname + window.location.search;
     const links = document.querySelectorAll('#navbar a, #hamburgerLinks a');
 
     if (!links.length) return;
@@ -79,7 +79,8 @@ export function highlightActiveNavLink() {
     const filteredLinks = filter(linksArray, (link) => link.href);
 
     filteredLinks.forEach((link) => {
-      const linkPath = new URL(link.href).pathname;
+      const linkUrl = new URL(link.href);
+      const linkPath = linkUrl.pathname + linkUrl.search;
       const isActive =
         path === linkPath ||
         (endsWith(path, '/') && path.slice(0, -1) === linkPath) ||
@@ -109,6 +110,14 @@ export async function loadNavbar() {
     placeholder.innerHTML = html;
     initHamburgerMenu();
     highlightActiveNavLink();
+
+    // Navbar Logo Click Handler
+    const logo = document.getElementById('logo-icon');
+    if (logo) {
+      logo.addEventListener('click', () => {
+        window.location.href = '?page=landing';
+      });
+    }
   } catch (error) {
     console.error('Navbar loading failed:', error);
     showErrorToUser(error.message);

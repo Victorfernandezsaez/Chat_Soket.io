@@ -1,9 +1,13 @@
 TODO
 
-- change background color and text color of navigation links on hover and on active
-- add a loading spiner for the galerie and the recipes
-- add a link to home when clicking the V logo
-- footer
-- adjust aside css to show in the right on every page and center it in the div
-- write sime sensfull text
-- check view on mobile phone
+(X) - change background color and text color of navigation links on hover and on active
+
+(X) - add a loading spiner for the galerie and the recipes
+
+(X) - add a link to home when clicking the V logo
+
+(X) - footer
+
+(X) - adjust aside css to show in the right on every page and center it in the div
+
+(X) - check view on mobile phone

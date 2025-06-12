@@ -1,22 +1,9 @@
-:root {
-  --background: #d3d9d4;
-  --primary: #124e66;
-  --secondary: #748d92;
-  --black: #212a31;
-  --grey: #2e3944;
-}
-
-body {
-  background: var(--background);
-  color: var(--black);
-  margin: 0;
-}
-
 .container {
   display: flex;
   flex-direction: column;
   font-family: sans-serif;
   text-align: center;
+  height: 80vh;
   margin: 0;
   padding: 2rem;
   background-color: var(--background);
