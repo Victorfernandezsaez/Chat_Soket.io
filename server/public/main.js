@@ -1,7 +1,9 @@
 import { loadNavbar } from './Navbar/navbar.js';
+import { loadFooter } from './Footer/footer.js';
 
 document.addEventListener('DOMContentLoaded', async () => {
   await loadNavbar();
+  await loadFooter();
 
   const urlParams = new URLSearchParams(window.location.search);
   const page = urlParams.get('page') || 'landing';
