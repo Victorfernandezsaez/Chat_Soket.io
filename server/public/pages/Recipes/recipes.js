@@ -7,16 +7,23 @@ let isLoading = false;
 
 async function loadInitialRecipes() {
   const resultsDiv = document.getElementById('results');
-  resultsDiv.innerHTML = 'Lade Empfehlungen...';
+  resultsDiv.innerHTML =
+    '<div style="text-align:center;"><span class="loader"></span></div>';
   try {
     const response = await fetch(
-      `https://api.spoonacular.com/recipes/random?number=6&apiKey=${apiKey}`
+      `https://api.spoonacular.com/recipes/complexSearch?number=6&addRecipeInformation=true&apiKey=${apiKey}`
     );
     const data = await response.json();
-    currentRecipes = data.recipes;
+
+    if (!data.results || data.results.length === 0) {
+      resultsDiv.innerHTML = `<p>We couldn't find any recipe.</p>`;
+      return;
+    }
+
+    currentRecipes = data.results;
     displayRecipes(currentRecipes);
   } catch (error) {
-    resultsDiv.innerHTML = 'Fehler beim Laden der Rezepte.';
+    resultsDiv.innerHTML = 'Fail loading the recipes. Please try again.';
     console.error(error);
   }
 }
@@ -43,6 +50,9 @@ async function moreRecipies() {
   } catch (error) {
     resultsDiv.innerHTML = 'Error loading more recipes.';
     console.error(error);
+  } finally {
+    isLoading = false;
+    if (loadMoreBtn) loadMoreBtn.disabled = false;
   }
 }
 
@@ -73,7 +83,7 @@ async function searchRecipes() {
     const data = await response.json();
 
     if (!data.results || data.results.length === 0) {
-      resultsDiv.innerHTML = 'Keine Rezepte gefunden.';
+      resultsDiv.innerHTML = 'Fail loading the recipes. Please try again.';
       return;
     }
 
@@ -89,7 +99,7 @@ async function searchRecipes() {
 
     displayRecipes(detailedRecipes);
   } catch (error) {
-    resultsDiv.innerHTML = 'Fehler beim Suchen.';
+    resultsDiv.innerHTML = 'Fail searching the recipes. Please try again.';
     console.error(error);
   }
 }
@@ -110,7 +120,8 @@ function displayRecipes(recipes) {
 
 async function showRecipeDetails(recipeId) {
   const detailsDiv = document.getElementById('recipe-details');
-  detailsDiv.innerHTML = 'Lade Rezeptdetails...';
+  detailsDiv.innerHTML =
+    '<div style="text-align:center; padding: 2rem;"><span class="loader"></span></div>';
 
   try {
     // Fetch recipe information (includes ingredients)
