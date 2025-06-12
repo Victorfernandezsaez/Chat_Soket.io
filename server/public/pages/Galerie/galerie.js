@@ -6,11 +6,22 @@ const prevBtn = document.getElementById('prev-btn');
 const nextBtn = document.getElementById('next-btn');
 
 async function getImage() {
-  const res = await fetch('https://dog.ceo/api/breeds/image/random');
-  const data = await res.json();
-  console.log(data);
+  const spinner = document.getElementById('spinner');
+  spinner.classList.remove('hidden');
 
-  return data.message;
+  try {
+    const res = await fetch('https://dog.ceo/api/breeds/image/random');
+    const data = await res.json();
+    console.log(data);
+
+    return data.message;
+  } catch (error) {
+    resultsDiv.innerHTML = 'Fehler beim Laden des Bildes.';
+    console.error('Error fetching image:', error);
+    return '';
+  } finally {
+    spinner.classList.add('hidden');
+  }
 }
 
 async function showNext() {
