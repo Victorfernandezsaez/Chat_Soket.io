@@ -54,6 +54,13 @@ footer {
   cursor: pointer;
 }
 
+#impresum {
+  cursor: pointer;
+}
+#datenschutz {
+  cursor: pointer;
+}
+
 .hidden {
   display: none;
 }

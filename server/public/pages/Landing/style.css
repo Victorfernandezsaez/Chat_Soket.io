@@ -3,9 +3,16 @@ h1 {
   color: var(--primary);
 }
 
-p {
+.description {
+  display: flex;
+  flex-direction: column;
+  padding: 10px 20px;
   font-style: italic;
   color: var(--primary);
+}
+
+h2 {
+  display: flex;
 }
 
 .intro {

@@ -33,12 +33,17 @@ main {
 
 aside {
   display: flex;
+  justify-content: center;
+  align-items: center;
   flex: 1;
   padding-left: 0.5rem;
   box-shadow: inset 5px 0 5px -5px var(--secondary);
+  font-style: italic;
+  color: var(--primary);
 }
 
 aside p {
+  display: flex;
   padding: 20px;
 }
 
