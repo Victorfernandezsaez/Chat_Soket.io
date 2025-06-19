@@ -13,7 +13,7 @@ const ADMIN = 'Admin';
 const app = express();
 
 app.get('/', (req, res) => {
-  res.sendFile(path.join(__dirname, '/public/LandingPage/index.html'));
+  res.sendFile(path.join(__dirname, '/public/main.html'));
 });
 
 app.use(express.static(path.join(__dirname, '/public')));
@@ -36,9 +36,15 @@ const colorClasses = [
   'user-color-10',
 ];
 
-//state (keeps the data until the server stop)
+// state (keeps the data until the server stop)
 const UsersState = {
   users: [],
+
+  /**
+   * Updates the list of users in the state.
+   * @param {string[]} newUsersArray
+   * - An array of new user names to set in the state.
+   */
   setUsers: function (newUsersArray) {
     this.users = newUsersArray;
   },
@@ -79,7 +85,7 @@ io.on('connection', (socket) => {
 
     socket.join(user.room);
 
-    //recived by the user that joined
+    // recived by the user that joined
     socket.emit('roomHeader', { room: user.room });
 
     // msg to all but the user
@@ -92,13 +98,13 @@ io.on('connection', (socket) => {
       users: getUsersInRoom(user.room),
     });
 
-    //update tooms for everyone
+    // update tooms for everyone
     io.emit('roomList', {
       rooms: getAllActiveRooms(),
     });
   });
 
-  //if user disconects  the rest recive
+  // if user disconects  the rest recive
   socket.on('disconnect', () => {
     const user = getUser(socket.id);
     userLeavesApp(socket.id);
@@ -119,7 +125,7 @@ io.on('connection', (socket) => {
     }
   });
 
-  //listening for msg
+  // listening for msg
   socket.on('message', ({ name, text }) => {
     const room = getUser(socket.id)?.room;
     if (room) {
@@ -128,7 +134,7 @@ io.on('connection', (socket) => {
     }
   });
 
-  //listen for activity
+  // listen for activity
   socket.on('activity', (name) => {
     const room = getUser(socket.id)?.room;
     if (room) {
@@ -150,6 +156,11 @@ function buildMsg(name, text, color) {
   };
 }
 
+/**
+ * Assigns a color class to a user based on the current size of the userColorMap.
+ * @param {string} userName - The name of the user to wich we assign a color .
+ * @returns {string} The assigned color class.
+ */
 function assignUserColor(userName) {
   if (userColorMap.has(userName)) {
     return userColorMap.get(userName);
@@ -160,7 +171,16 @@ function assignUserColor(userName) {
   return nextColor;
 }
 
-//user functions
+// user functions
+
+/**
+ * Activates a user by adding them to the state or updating their information.
+ * @param {string} id - The unique ID of the user.
+ * @param {string} name - The name of the user.
+ * @param {string} room - The room the user is joining.
+ * @returns {{ id: string, name: string, room: string }} The activated user object.
+ */
+
 function activateUser(id, name, room) {
   const user = {
     id,
@@ -174,19 +194,38 @@ function activateUser(id, name, room) {
   return user;
 }
 
+/**
+ * Removes a user from the application state when they leave.
+ * @param {string} id - The unique ID of the removed user.
+ */
 function userLeavesApp(id) {
   UsersState.setUsers(UsersState.users.filter((user) => user.id !== id));
 }
 
+/**
+ * Call a user from the state by his unique ID.
+ * @param {string} id - The unique ID of the user.
+ * @returns {{ id: string, name: string, room: string } | undefined} The user object, or `undefined` if not found.
+ */
 function getUser(id) {
   return UsersState.users.find((user) => user.id === id);
 }
 
+/**
+ * Call all users in a specific room.
+ * @param {string} room - The name of the room to filter users by.
+ * @returns {{ id: string, name: string, room: string }[]} An array of user objects in a specified room.
+ */
 function getUsersInRoom(room) {
   return UsersState.users.filter((user) => user.room === room);
 }
 
+/**
+ * Gets all active rooms by collecting unique room names from the users in the state.
+ * @return {string[]} An array of unique room names.
+ */
+
 function getAllActiveRooms() {
-  // creating the set we avoid getting duplicate rooms
+  // creating the Set we avoid getting duplicate rooms
   return Array.from(new Set(UsersState.users.map((user) => user.room)));
 }
