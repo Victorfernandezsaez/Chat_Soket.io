@@ -4,37 +4,37 @@ This is a web project that includes a chat application embedded into a website. 
 
 ## How to Start the Project
 
-1. **Intall dependecies**
+1. - **Install dependencies**
 
 ```bash
  npm install
 ```
 
-2. **Start Development Server**
+2. - **Start Development Server**
 
 ```bash
     npm run dev
 ```
 
-3. **Build Project**
+3. - **Build Project**
 
 ```bash
   npm run build
 ```
 
-4. **Lint the Code with ESLint**
+4. - **Lint the Code with ESLint**
 
 ```bash
   npm run lint
 ```
 
-5. **Format the Code with Prettier**
+5. - **Format the Code with Prettier**
 
 ```bash
   npm run format
 ```
 
-6. **Start the Production Server**
+6. - **Start the Production Server**
 
 ```bash
   npm run start
@@ -44,23 +44,23 @@ This is a web project that includes a chat application embedded into a website. 
 
 ### Real-Time Chat Application
 
-##### A chat application using Socket.IO for real-time communication between users.
+### A chat application using Socket.IO for real-time communication between users.
 
-##### Just give your name in the place holder and the name of the room you want to join. If there is someone in th same room you will be able to talk to them.
+### Just give your name in the place holder and the name of the room you want to join. If there is someone in the same room you will be able to talk to them.
 
-### Dog Image Gallerie
+### Dog Image Gallery
 
-##### Fetches random dog images from an API and displays a carousel of dogs pictures with it´s breed name dynamically.
+### Fetches random dog images from an API and displays a carousel of dogs pictures with it´s breed name dynamically.
 
-### Recipie Book
+### Recipe Book
 
-##### Fetches random recipes from an API and displays the pictures of the recipies and its name.
+### Fetches random recipes from an API and displays the pictures of the recipies and its name.
 
-##### Click the image to se how to prepare the recipe
+### Click the image to ses how to prepare the recipe.
 
 ### Leaflet Map
 
-##### Fetches a map from the Leaflet API and displays it.
+### Fetches a map from the Leaflet API and displays it.
 
 ## Additional Notes
 
@@ -77,10 +77,10 @@ The project uses the following key dependencies:
 
 The project is organized as follows:
 
-**public/: Contains the frontend files (HTML, CSS, JS).**
-**server: Contains the backend files (e.g., index.js).**
+- `public/`: Contains the frontend files (HTML, CSS, JS)
+- `server/`: Contains the backend files (e.g., `index.js`)
 
 ## Contact Information
 
 For any questions or issues with starting the project, feel free to reach out via email:
-victor.fernandez@hochschule.de
+s3005677@dhsn.de
