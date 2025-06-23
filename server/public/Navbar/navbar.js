@@ -10,17 +10,23 @@ function endsWith(value, suffix) {
 }
 
 /**
- * Filters items using a test function
+ * Filters items using a test function.
+ *
+ * @param {Array} items - The array of items to filter.
+ * @param {Function} test - The test function to apply to each item.
+ * @returns {Array} A new array with items that pass the test function.
  */
 function filter(items, test) {
   if (!Array.isArray(items)) return [];
   if (typeof test !== 'function') return [...items];
-  return items.filter(test); // Using native filter for simplicity
+  return items.filter(test);
 }
 
 // Hamburger Menu Functionality
+
 /**
  * Initializes hamburger menu functionality
+ * and toggles the visibility of the menu links.
  */
 
 export function initHamburgerMenu() {
@@ -29,6 +35,12 @@ export function initHamburgerMenu() {
 
   if (!hamburgerIcon || !links) return;
 
+  /**
+   * Adds an event listener to close the hamburger menu when clicking outside of it.
+   *
+   * @param {MouseEvent} e - The click event triggered by the user.
+   * @listens document#click
+   */
   hamburgerIcon.addEventListener('click', (e) => {
     e.stopPropagation();
     const isExpanded = links.style.display === 'block';
@@ -36,7 +48,12 @@ export function initHamburgerMenu() {
     hamburgerIcon.setAttribute('aria-expanded', !isExpanded);
   });
 
-  // Close when clicking outside the menu
+  /**
+   * Adds an event listener to close the hamburger menu when clicking outside of it.
+   *
+   * @param {MouseEvent} e - The click event triggered by the user.
+   * @listens document#click
+   */
   document.addEventListener('click', (e) => {
     if (!links.contains(e.target) && !hamburgerIcon.contains(e.target)) {
       links.style.display = 'none';
@@ -97,6 +114,9 @@ export function highlightActiveNavLink() {
 // Main Export
 /**
  * Loads navbar HTML and initializes all components
+ *
+ *  * @async
+ * @throws {Error} Throws an error if the navbar HTML cannot be fetched or if the placeholder is not found.
  */
 export async function loadNavbar() {
   try {

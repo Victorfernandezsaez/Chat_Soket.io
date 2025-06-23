@@ -1,3 +1,16 @@
+function showErrorToUser(message) {
+  const errorDiv = document.createElement('div');
+  errorDiv.className = 'navbar-error';
+  errorDiv.textContent = `Navigation Error: ${message}`;
+  errorDiv.style.cssText = `
+    padding: 1rem;
+    background: #ffebee;
+    color: #c62828;
+    border: 1px solid #c62828;
+    margin: 0.5rem;
+  `;
+}
+
 export async function loadFooter() {
   try {
     const response = await fetch('../Footer/index.html');
@@ -32,7 +45,7 @@ function getModalContent(id) {
   if (id === 'impresum') {
     return `
         <h2>Impressum</h2>
-        <p>Hier steht das Impressum deiner Website. Z. B. Name, Adresse, Kontaktinformationen.</p>
+        <p>Hier steht das Impressum deiner Website. Z.B. Name, Adresse, Kontaktinformationen.</p>
       `;
   } else if (id === 'datenschutz') {
     return `
