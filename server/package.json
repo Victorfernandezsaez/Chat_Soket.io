@@ -7,7 +7,8 @@
     "start": "node",
     "dev": "nodemon",
     "lint": "eslint ./public/**/*.js",
-    "format": "prettier --write ./public/**/*.{js,html,css}"
+    "format": "prettier --write ./public/**/*.{js,html,css}",
+    "build": "esbuild ./public/main.js --bundle --minify --outfile=dist/bundle.js"
   },
   "keywords": [],
   "author": "Victor Fernandez Saez",
