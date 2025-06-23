@@ -2,6 +2,7 @@ const images = [];
 let currentIndex = -1;
 
 const imgEl = document.getElementById('image');
+const descriptionEl = document.getElementById('description');
 const prevBtn = document.getElementById('prev-btn');
 const nextBtn = document.getElementById('next-btn');
 
@@ -12,7 +13,12 @@ async function getImage() {
   try {
     const res = await fetch('https://dog.ceo/api/breeds/image/random');
     const data = await res.json();
-    console.log(data);
+    console.log(data.message);
+
+    const breed = extractBreedFromUrl(data.message);
+
+    imgEl.src = data.message;
+    descriptionEl.textContent = `${breed}`;
 
     return data.message;
   } catch (error) {
@@ -22,6 +28,12 @@ async function getImage() {
   } finally {
     spinner.classList.add('hidden');
   }
+}
+
+function extractBreedFromUrl(url) {
+  const parts = url.split('/');
+  const breed = parts[parts.length - 2];
+  return breed.includes('-') ? breed.split('-').join(' ') : breed;
 }
 
 async function showNext() {

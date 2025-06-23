@@ -25,7 +25,7 @@ footer {
 }
 
 .modal {
-  display: none; /* Hidden by default */
+  display: none;
   position: fixed;
   z-index: 1000;
   left: 0;
@@ -51,6 +51,13 @@ footer {
   top: 8px;
   right: 12px;
   font-size: 1.5rem;
+  cursor: pointer;
+}
+
+#impresum {
+  cursor: pointer;
+}
+#datenschutz {
   cursor: pointer;
 }
 
