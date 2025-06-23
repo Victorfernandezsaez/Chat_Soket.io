@@ -44,23 +44,23 @@ This is a web project that includes a chat application embedded into a website. 
 
 ### Real-Time Chat Application
 
-### A chat application using Socket.IO for real-time communication between users.
+A chat application using Socket.IO for real-time communication between users.
 
-### Just give your name in the place holder and the name of the room you want to join. If there is someone in the same room you will be able to talk to them.
+Just give your name in the place holder and the name of the room you want to join. If there is someone in the same room you will be able to talk to them.
 
 ### Dog Image Gallery
 
-### Fetches random dog images from an API and displays a carousel of dogs pictures with it´s breed name dynamically.
+Fetches random dog images from an API and displays a carousel of dogs pictures with it´s breed name dynamically.
 
 ### Recipe Book
 
-### Fetches random recipes from an API and displays the pictures of the recipies and its name.
+Fetches random recipes from an API and displays the pictures of the recipies and its name.
 
-### Click the image to ses how to prepare the recipe.
+Click the image to ses how to prepare the recipe.
 
 ### Leaflet Map
 
-### Fetches a map from the Leaflet API and displays it.
+Fetches a map from the Leaflet API and displays it.
 
 ## Additional Notes
 
