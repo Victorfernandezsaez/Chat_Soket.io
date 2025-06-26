@@ -20,6 +20,13 @@ body {
   min-height: 100vh;
 }
 
+#navbar-placeholder {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  width: 100%;
+}
+
 .layout {
   width: 100%;
   display: flex;
@@ -28,8 +35,13 @@ body {
 
 main {
   flex: 2;
-  height: 100%;
+  overflow-y: auto;
+  height: calc(100vh - (80px + 60px));
 }
+/* main {
+  flex: 2;
+  height: 100%;
+} */
 
 aside {
   display: flex;
@@ -40,11 +52,21 @@ aside {
   box-shadow: inset 5px 0 5px -5px var(--secondary);
   font-style: italic;
   color: var(--primary);
+  position: sticky;
+  top: 80px;
+  height: calc(100vh - (80px + 60px));
+  overflow-y: auto;
 }
 
 aside p {
   display: flex;
   padding: 20px;
+}
+
+#footer-placeholder {
+  position: sticky;
+  bottom: 0;
+  width: 100%;
 }
 
 .chat-apps-container {
@@ -82,6 +104,10 @@ aside p {
 
   aside {
     display: none;
+  }
+
+  main {
+    height: calc(100vh - (80px + 60px));
   }
 }
 
